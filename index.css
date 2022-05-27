@@ -1,0 +1,26 @@
+#nav {
+    display: flex;
+    width: 100%;
+    background-color: rgb(161, 191, 181);
+}
+.company,.difference,.person {
+    display: flex;
+    height: 80px;
+}
+.company{
+    width: 20%;
+    
+}
+.difference {
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    
+}
+.person{
+    display: flex;
+    width: 30%;
+    justify-content: space-evenly;
+    
+}
+

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    h2{
+        text-align: center;
+    }
+    #container{
+        font-family: sans-serif;
+        width: 25%;
+        height: 400px;
+        margin: auto;
+        background-color: rgb(229, 236, 242);
+        box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    }
+    input {
+        display: block;
+        margin: auto;
+        width:90%;
+        padding: 5px;
+        margin-top: 20px;
+    }
+    
+</style>
+<body>
+    <div id="container">
+        <h2>You are successfully signed up now,Login</h2>
+    <form id="signin">
+    <label>Enter Email</label><br>
+    <input type="text" id="email" placeholder="enter email"><br>
+    <label>Enter Password</label><br>
+    <input type="password" id="pw" placeholder="enter password"><br>
+    <input type="submit">
+    </form>
+</div>
+</body>
+</html>
+<script>
+    var form=document.querySelector("#signin")
+    var signindata=JSON.parse(localStorage.getItem("credentials"))
+
+    form.addEventListener("submit",function(event){
+        event.preventDefault()
+
+        var data={
+            email:form.email.value,
+            password:form.pw.value,
+
+        }
+        console.log(data)
+        if(signindata==null)
+        alert("Please create an account first")
+        else if(signindata.email==data.email && signindata.password==data.password)
+        {alert("You have successfully signed in")
+    localStorage.setItem("signindata",JSON.stringify(data))
+window.location.href="index.html"}
+else{
+    alert("User does not exist")
+}
+    })
+</script>
